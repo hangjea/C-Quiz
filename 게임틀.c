@@ -66,7 +66,7 @@ void gfield(char field[y][x])
 void display(char field[y][x],int a,int b) 
 {
 	int i, j;
-	printf("ÇöÀç À§Ä¡: x : %d  y : %d\n", b, a);
+	printf("í˜„ìž¬ ìœ„ì¹˜: x : %d  y : %d\n", b, a);
 	printf("\n =============================\n");
 	for (i = a - 10; i <= a + 10; i++) {
 		printf("\t");
@@ -108,17 +108,17 @@ void sw(char field[y][x])
 	else if (move == 'x')
 	{
 
-		printf("\n°ÔÀÓÀ» Á¾·áÇÏ°Ú½À´Ï´Ù.");
+		printf("\nê²Œìž„ì„ ì¢…ë£Œí•˜ê² ìŠµë‹ˆë‹¤.");
 		exit(0);
 	}
 	else
-		printf("\nw,a,s,d,x ¿ÜÀÇ Å°¸¦ ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù.");
+		printf("\nw,a,s,d,x ì™¸ì˜ í‚¤ë¥¼ ìž…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 
 	if (field[px+a][py+b] == 'T') {
 
 		system("cls");
 		printf("===============================");
-		printf("\n ±×ÂÊÀ¸·Î´Â ÀÌµ¿ÇÒ ¼ö ¾ø½À´Ï´Ù. \n");
+		printf("\n ê·¸ìª½ìœ¼ë¡œëŠ” ì´ë™í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. \n");
 		printf("===============================\n");
 	}
 	else
