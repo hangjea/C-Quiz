@@ -1,0 +1,59 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+int  reverse_add(int num);
+int palindrome(int p);
+
+int main() {
+    int num = 0;   // 입력 데이터 값
+    int cont = 0;   // 반복횟수
+    int p = 0;      // 회문정수값
+    scanf("%d", &num);
+    p = reverse_add(num);
+    cont += 1;
+    while (1)
+    {
+        cont++;
+        p = reverse_add(p);
+        if (palindrome(p) == 1 || cont > 1000)
+        {
+            printf("반복횟수 : %d, 회문인 수 : %d\n", cont, p);
+            break;
+        }
+    }
+}
+
+int  reverse_add(int num) {
+    int r = 0; // 뒤집은 정수 저장 변수
+    int rnum = num;   // 원래값 임시 저장 변수
+    int p = 0;
+    while (num != 0) {
+        r *= 10;
+        r += num % 10;
+        num /= 10;
+    }
+        
+    printf("현재 진행중인 값: %d\n", r);
+    return r + rnum;
+}
+
+int palindrome(int p)
+{
+    int r = 0; // 뒤집은 정수 저장 변수
+    int rnum = p; // 원래값 임시 저장 변수
+
+    while (p != 0)
+    {
+        r *= 10;
+        r += p % 10;
+        p /= 10;
+    }
+
+    if (r == rnum)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
+}
