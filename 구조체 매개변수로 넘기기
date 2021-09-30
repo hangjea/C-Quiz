@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int Sum_diff_mul(struct SDM *a);
+
+typedef struct SDM {
+    int x;
+    int y;
+    int SUM;
+    int DIFF;
+    int MUL;
+}XY;
+int main(void)
+{
+    XY a;
+rt:
+   printf("Enter two integer numbers\n");
+   scanf_s("%d%d", &a.x, &a.y);
+   if (a.x > a.y)
+   {
+      Sum_diff_mul(&a);
+      printf("\n SUM: %d DIFF: %d MUL: %d", a.SUM, a.DIFF, a.MUL);
+   }
+   else
+   {
+      printf("다시 입력해 주세요\n");
+      goto rt;
+   }
+   return 0;
+   
+}
+int Sum_diff_mul(struct SDM* a)
+{
+   a->SUM = a->x + a->y;
+   a->DIFF = a->x - a->y;
+   a->MUL = a->x * a->y;
+   return 0;
+}
