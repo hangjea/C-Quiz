@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+void sum_diff_mul_(int x, int y, int* sum, int* diff, int* mul);
+
+int main(void)
+{
+   int x, y, sum, diff, mul;
+   reset:
+   printf("정수 x,y 입력:");
+   scanf("%d %d", &x, &y);
+
+   if (x > y)
+   {
+      sum_diff_mul_(x,y,&sum,&diff,&mul);
+      printf("sum : %d, diff : %d, mul: %d", sum,diff,mul);
+   }
+   else
+   {
+      printf("x의 값이 y의 값보다 커야함\n");
+      goto
+void sum_diff_mul_(int x, int y, int* sum, int* diff, int* mul)
+{
+   *sum = x + y;
+   *diff = x - y;
+   *mul = x * y;
+}
