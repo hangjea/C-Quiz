@@ -1,0 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS  
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void get_date(char *birthday);
+int validate_date(int year, int month, int day);
+
+int main()
+{
+	char a[30];
+	gets(a);
+	get_date(a);
+}
+
+
+void get_date(char *birtday) {
+	int year, month, day;
+	int i = 0;
+	char* ptr = strtok(birtday, " / ");
+	year = atoi(ptr);
+	ptr = strtok(NULL, "/");
+	month = atoi(ptr);
+	ptr = strtok(NULL, "/");
+	day = atoi(ptr);
+	printf("숫자 변환: %d %d %d \n", year, month, day); //이거 너가 알아서 지워 확인용으로 둔거임
+    printf("%d",(validate_date(year, month, day)));
+    crunch_date(year); // main함수에 넣어도 무방함
+    show_numerolgy(5); //알아서 값 바꿔 (main함수로 옮겨도 됨)
+
+}
+
