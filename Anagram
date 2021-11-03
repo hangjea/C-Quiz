@@ -1,0 +1,73 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+
+void Anagraminput(char* t1, char* t2);
+int Anagramcalculation(char* t1, char* t2);
+
+
+int main()
+{
+    char t1[100];
+    char t2[100];
+    Anagraminput(t1, t2);
+}
+
+void Anagraminput(char* t1, char* t2)
+{
+    int number_of_times, i;
+
+    while (1) {
+        scanf("%d", &number_of_times);
+        if (number_of_times >= 0 && number_of_times < 100) break;
+    }
+
+    for (i = 0; i < number_of_times; i++)
+    {
+        fflush(stdin);
+        scanf("%s", t1);
+        fflush(stdin);
+        scanf("%s", t2);
+        printf("=== Test %s %s ===\n", t1, t2);
+        if (Anagramcalculation(t1, t2))
+        {
+            printf("Result: Anagram\n");
+        }
+        else
+        {
+            printf("Result: Is Not Anagram\n");
+        }
+    }
+
+
+
+}
+int Anagramcalculation(char* t1, char* t2)
+{
+    int i, j;
+    int check;
+    if (strlen(t1) != strlen(t2))
+    {
+        return 0;
+    }
+    char buf[256] = "";
+    strcpy(buf, t1);
+    for (i = 0; t2[i]; i++)//s2[i] 문자가 참이면(거짓은 종료 문자임) 반복
+    {
+        check = 0;//check를 거짓으로 초기화(발견하지 못함)
+        for (j = 0; buf[j]; j++)//buf[j] 문자가 참이면(거짓은 종료 문자임) 반복
+        {
+            if (t2[i] == buf[j])//s2[i]와 buf[j]가 같으면
+            {
+                strcpy(buf + j, buf + j + 1);//buf[j] 뒤에 있는 것을 한 칸 앞으로 이동, buf[j] 문자 추출
+                check = 1;//check를 참으로 마킹(발견하였음)
+                break;//반복문 탈출(s2[j]은 참인 상태임)
+            }
+        }
+        if (check == 0)//check가 거짓이면(발견하지 못하였음)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
